@@ -1,0 +1,8 @@
+// Query: Detect Brute Force Login Attempts
+SecurityEvent
+| where EventID == 4625  // 4625: Failed login attempt
+| where TargetLogonId == "0x3e7"  // Indicates interactive logon (RDP)
+| summarize FailedAttempts = count() by TargetAccount, IpAddress, bin(TimeGenerated, 5m)
+| where FailedAttempts > 10  // Threshold for brute force detection
+| project TimeGenerated, TargetAccount, IpAddress, FailedAttempts
+| order by FailedAttempts desc

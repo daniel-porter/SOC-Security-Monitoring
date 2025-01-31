@@ -1,0 +1,7 @@
+// Query: Detect Successful Local Logins
+SecurityEvent
+| where EventID == 4624  // Successful logon events
+| where Account !contains "system"  // Exclude system accounts
+| where LogonType == 10 or LogonType == 7  // Focus on RDP or unlock logons
+| summarize SuccessfulLogins = count() by Account, IpAddress, bin(TimeGenerated, 15m)
+| order by SuccessfulLogins desc
