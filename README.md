@@ -28,7 +28,7 @@ Setup Instructions:
 
     Automate Incident Responses:
         Configure alert rules to trigger:
-            Blocking IPs using PowerShell (/scripts/response-playbook.ps1).
+            Blocking IPs using PowerShell.
             Sending SOC notifications.
 
 Technologies Used:
