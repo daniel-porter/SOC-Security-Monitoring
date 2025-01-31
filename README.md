@@ -50,7 +50,3 @@ Screenshots:
 
 
 
-Include visual proof of your project:
-
-    SIEM Dashboard: (e.g., alert overview or incident list).
-    Query Results: (e.g., detection of brute force attempts).
